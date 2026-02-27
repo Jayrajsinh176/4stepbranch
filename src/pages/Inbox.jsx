@@ -3,6 +3,24 @@ import Navbar from "../components/navbar";
 import React from "react";
 
 function Inbox() {
+
+  const messages = [
+    {
+      id: 1,
+      from: "Admin",
+      subject: "Welcome to the platform!",
+      date: "2026-02-14",
+      status: "Read",
+    },
+    {
+      id: 2,
+      from: "Support Team",
+      subject: "Your KYC is under review",
+      date: "2026-02-16",
+      status: "Pending",
+    },
+  ];
+
   return (
     <div className="flex flex-col lg:flex-row bg-gray-100 min-h-screen">
       <Sidebar />
@@ -31,14 +49,29 @@ function Inbox() {
                 </thead>
 
                 <tbody className="font-medium">
-                  <tr className="border-b border-gray-400">
-                    <td className="p-4">01</td>
-                    <td>Admin</td>
-                    <td>Welcome to the platform!</td>
-                    <td>2026-02-14</td>
-                    <td>Read</td>
-                    <td className="text-[#256BB1] font-semibold">View</td>
-                  </tr>
+                  {messages.map((msg, index) => (
+                    <tr
+                      key={msg.id}
+                      className="border-b border-gray-300 hover:bg-gray-50"
+                    >
+                      <td className="p-4">{index + 1}</td>
+                      <td>{msg.from}</td>
+                      <td>{msg.subject}</td>
+                      <td>{msg.date}</td>
+                      <td
+                        className={
+                          msg.status === "Read"
+                            ? "text-green-600"
+                            : "text-orange-500"
+                        }
+                      >
+                        {msg.status}
+                      </td>
+                      <td className="text-[#256BB1] font-semibold cursor-pointer hover:underline">
+                        View
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
 
               </table>
@@ -46,7 +79,7 @@ function Inbox() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

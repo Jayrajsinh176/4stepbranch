@@ -4,6 +4,26 @@ import Navbar from "../components/navbar";
 import { FaSearch } from "react-icons/fa";
 
 function SendProductRequest() {
+
+  const sendproductrequest = [
+    {
+      id: 1,
+      date: "2023-01-01",
+      totalproduct: "10",
+      totalamount: "$10.00",
+      totalpv: "100",
+      status: "Pending",
+    },
+    {
+      id: 2,
+      date: "2023-02-15",
+      totalproduct: "5",
+      totalamount: "$5.00",
+      totalpv: "50",
+      status: "Approved",
+    },
+
+  ]
   return (
     <div className="flex flex-col lg:flex-row bg-gray-100 min-h-screen">
       <Sidebar />
@@ -48,37 +68,34 @@ function SendProductRequest() {
                 />
               </div>
             </div>
-            <table className="w-full min-w-190 text-sm">
+            <table className="w-full min-w-190 text-sm text-center">
               <thead>
                 <tr className="bg-[#B0422E] text-white">
-                  <th className="py-3 px-4 text-left rounded-l-xl">
-                    Request No
-                  </th>
-                  <th className="py-3 px-4 text-left"> Date</th>
-                  <th className="py-3 px-4 text-left">Total Products</th>
-                  <th className="py-3 px-4 text-left">Total Amount</th>
-                  <th className="py-3 px-4 text-left">Total PV</th>
-                  <th className="py-3 px-4 text-left rounded-r-xl">Status</th>
+                  <th className="py-3 px-4  rounded-l-xl">Request No</th>
+                  <th className="py-3 px-4 "> Date</th>
+                  <th className="py-3 px-4 ">Total Products</th>
+                  <th className="py-3 px-4 ">Total Amount</th>
+                  <th className="py-3 px-4 ">Total PV</th>
+                  <th className="py-3 px-4 rounded-r-xl">Status</th>
                 </tr>
               </thead>
 
               <tbody className="font-medium">
-                <tr className="border-b  border-gray-400">
-                  <td className="py-4 px-4">01</td>
-                  <td className="py-4 px-4">17-02-2026</td>
-                  <td className="py-4 px-4">4999₹</td>
-                  <td className="py-4 px-4">Online</td>
-                  <td className="py-4 px-4">Purchase Balance</td>
-                  <td className="py-4 px-4">Succeed</td>
-                </tr>
-                <tr className="border-b  border-gray-400">
-                  <td className="py-4 px-4">02</td>
-                  <td className="py-4 px-4">17-02-2026</td>
-                  <td className="py-4 px-4">6999₹</td>
-                  <td className="py-4 px-4">Online</td>
-                  <td className="py-4 px-4">Turnover Balance</td>
-                  <td className="py-4 px-4">Pending</td>
-                </tr>
+                {sendproductrequest.map((send, index) => (
+                  <tr className="border-b  border-gray-400" key={send.id}>
+                    <td className="py-4 px-4">{index + 1}</td>
+                    <td className="py-4 px-4">{send.date}</td>
+                    <td className="py-4 px-4">{send.totalproduct}</td>
+                    <td className="py-4 px-4">{send.totalamount}</td>
+                    <td className="py-4 px-4">{send.totalpv}</td>
+                    <td className={send.status === "Approved"
+                      ? "text-green-600 py-4 px-4 "
+                      : "text-orange-500 py-4 px-4 "}
+                    >
+                      {send.status}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
 

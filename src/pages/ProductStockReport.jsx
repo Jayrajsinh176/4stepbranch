@@ -3,6 +3,32 @@ import Navbar from "../components/navbar";
 import { MdOutlineFileDownload } from "react-icons/md";
 
 function ProductStockReport() {
+     
+    const stockReport = [
+        {
+            id: 1,
+            product: "Product 1",
+            mrp: 100,
+            offerPrice: 50,
+            pv: 10,
+            productReceived: 20,
+            productUsed: 10,
+            productBalance: 10,
+            balanceAmount: 500
+        },
+        {
+            id: 2,
+            product: "Product 2",
+            mrp: 100,
+            offerPrice: 50,
+            pv: 10,
+            productReceived: 20,
+            productUsed: 10,
+            productBalance: 10,
+            balanceAmount: 500
+        }
+
+    ]
     return (
         <div className="flex flex-col lg:flex-row bg-gray-100 min-h-screen">
             <Sidebar />
@@ -29,41 +55,32 @@ function ProductStockReport() {
                         <table className="w-full min-w-190 text-sm">
                             <thead>
                                 <tr className="bg-[#B0422E] text-white font-semibold">
-                                    <th className="py-3 px-4 text-left rounded-l-xl">Sr No.</th>
-                                    <th className="py-3 px-4 text-left">Product </th>
-                                    <th className="py-3 px-4 text-left">MRP</th>
-                                    <th className="py-3 px-4 text-left">Offer Price</th>
-                                    <th className="py-3 px-4 text-left">PV</th>
-                                    <th className="py-3 px-4 text-left">Product Received</th>
-                                    <th className="py-3 px-4 text-left">Product Used</th>
-                                    <th className="py-3 px-4 text-left">Product Balance</th>
-                                    <th className="py-3 px-4 text-left rounded-r-xl">Balance Amount</th>
+                                    <th className="py-3 px-4  rounded-l-xl">Sr No.</th>
+                                    <th className="py-3 px-4 ">Product </th>
+                                    <th className="py-3 px-4 ">MRP</th>
+                                    <th className="py-3 px-4 ">Offer Price</th>
+                                    <th className="py-3 px-4 ">PV</th>
+                                    <th className="py-3 px-4 ">Product Received</th>
+                                    <th className="py-3 px-4 ">Product Used</th>
+                                    <th className="py-3 px-4 ">Product Balance</th>
+                                    <th className="py-3 px-4 rounded-r-xl">Balance Amount</th>
                                 </tr>
                             </thead>
 
                             <tbody className="text-center font-medium">
-                                <tr className="border-b  border-gray-400">
-                                    <td className="py-4 px-4">01</td>
-                                    <td className="py-4 px-4">BODY DETOX CAPSULE</td>
-                                    <td className="py-4 px-4">999</td>
-                                    <td className="py-4 px-4">999</td>
-                                    <td className="py-4 px-4">166</td>
-                                    <td className="py-4 px-4">10</td>
-                                    <td className="py-4 px-4">06</td>
-                                    <td className="py-4 px-4">04</td>
-                                    <td className="py-4 px-4">3200</td>
-                                </tr>
-                                <tr className="border-b  border-gray-400">
-                                    <td className="py-4 px-4">02</td>
-                                    <td className="py-4 px-4">BODY DETOX CAPSULE</td>
-                                    <td className="py-4 px-4">999</td>
-                                    <td className="py-4 px-4">999</td>
-                                    <td className="py-4 px-4">166</td>
-                                    <td className="py-4 px-4">10</td>
-                                    <td className="py-4 px-4">06</td>
-                                    <td className="py-4 px-4">04</td>
-                                    <td className="py-4 px-4">3200</td>
-                                </tr>
+                                {stockReport.map((item) => (
+                                    <tr className="border-b  border-gray-400">
+                                        <td className="py-4 px-4">{item.id}</td>
+                                        <td className="py-4 px-4">{item.product}</td>
+                                        <td className="py-4 px-4">{item.mrp}</td>
+                                        <td className="py-4 px-4">{item.offerPrice}</td>
+                                        <td className="py-4 px-4">{item.pv}</td>
+                                        <td className="py-4 px-4">{item.productReceived}</td>
+                                        <td className="py-4 px-4">{item.productUsed}</td>
+                                        <td className="py-4 px-4">{item.productBalance}</td>
+                                        <td className="py-4 px-4">{item.balanceAmount}</td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
