@@ -65,7 +65,7 @@ export default function PurchaseBalanceRequest() {
                   <CreditCard size={16} />
                   Mode of Payment*
                 </label>
-                <select className="w-full border border-gray-400  rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#B0422E]">
+                <select className="w-full border border-gray-400  rounded-lg text-gray-600 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#B0422E]">
                   <option>By Online Payment</option>
                 </select>
               </div>
@@ -88,13 +88,13 @@ export default function PurchaseBalanceRequest() {
                 </label>
                 <input
                   type="file"
-                  className="w-full border border-gray-400 rounded-lg px-3 py-2"
+                  className="w-full  text-gray-600  border border-gray-400 rounded-lg px-3 py-2"
                 />
               </div>
 
             </div>
 
-            <hr />
+            <hr className="border-gray-400" />
 
             <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
               <p className="text-[#0000005C] text-medium">

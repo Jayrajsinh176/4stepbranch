@@ -50,7 +50,7 @@ function ProductStockTransaction() {
                             </thead>
 
                             <tbody className="text-center font-medium">
-                                <tr className="border-b">
+                                <tr className="border-b  border-gray-400">
                                     <td className="py-4 px-4">01</td>
                                     <td className="py-4 px-4">BODY DETOX CAPSULE</td>
                                     <td className="py-4 px-4">10-02-2026</td>

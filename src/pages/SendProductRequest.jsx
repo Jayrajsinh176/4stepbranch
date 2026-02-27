@@ -63,7 +63,7 @@ function SendProductRequest() {
               </thead>
 
               <tbody className="font-medium">
-                <tr className="border-b">
+                <tr className="border-b  border-gray-400">
                   <td className="py-4 px-4">01</td>
                   <td className="py-4 px-4">17-02-2026</td>
                   <td className="py-4 px-4">4999₹</td>
@@ -71,7 +71,7 @@ function SendProductRequest() {
                   <td className="py-4 px-4">Purchase Balance</td>
                   <td className="py-4 px-4">Succeed</td>
                 </tr>
-                <tr className="border-b">
+                <tr className="border-b  border-gray-400">
                   <td className="py-4 px-4">02</td>
                   <td className="py-4 px-4">17-02-2026</td>
                   <td className="py-4 px-4">6999₹</td>

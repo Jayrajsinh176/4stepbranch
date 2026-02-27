@@ -12,7 +12,7 @@ import { Building2, IndianRupee, CreditCard, Upload } from "lucide-react";
 
         <div className="text-center mt-6">
           <h1 className="text-3xl font-bold text-[#B0422E]">
-            Purchase Balance Request
+            Turnover Balance Request
           </h1>
         </div>
 
@@ -56,7 +56,7 @@ import { Building2, IndianRupee, CreditCard, Upload } from "lucide-react";
                 <input
                   type="text"
                   placeholder="Min ₹500"
-                  className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#B0422E]"
+                  className="w-full border  border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#B0422E]"
                 />
               </div>
 
@@ -65,7 +65,7 @@ import { Building2, IndianRupee, CreditCard, Upload } from "lucide-react";
                   <CreditCard size={16} />
                   Mode of Payment*
                 </label>
-                <select className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#B0422E]">
+                <select className="w-full border  border-gray-400 text-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#B0422E]">
                   <option>By Online Payment</option>
                 </select>
               </div>
@@ -77,7 +77,7 @@ import { Building2, IndianRupee, CreditCard, Upload } from "lucide-react";
                 <input
                   type="text"
                   placeholder="By Online Payment"
-                  className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#B0422E]"
+                  className="w-full border  border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#B0422E]"
                 />
               </div>
 
@@ -88,13 +88,13 @@ import { Building2, IndianRupee, CreditCard, Upload } from "lucide-react";
                 </label>
                 <input
                   type="file"
-                  className="w-full border rounded-lg px-3 py-2"
+                  className="w-full border  border-gray-400 text-gray-600 rounded-lg px-3 py-2"
                 />
               </div>
 
             </div>
 
-            <hr />
+            <hr className=" border-gray-400" />
 
             <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
               <p className="text-[#0000005C] text-medium">

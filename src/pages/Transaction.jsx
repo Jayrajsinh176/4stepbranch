@@ -68,7 +68,7 @@ function Transaction() {
               </thead>
 
               <tbody className="font-medium">
-                <tr className="border-b">
+                <tr className="border-b  border-gray-400">
                   <td className="py-4 px-4">01</td>
                   <td className="py-4 px-4">17-02-2026</td>
                   <td className="py-4 px-4">

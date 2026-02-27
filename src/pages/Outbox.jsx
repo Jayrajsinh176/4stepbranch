@@ -31,7 +31,7 @@ function Outbox() {
                 </thead>
 
                 <tbody className="font-medium">
-                  <tr className="border-b">
+                  <tr className="border-b border-gray-400">
                     <td className="p-4">01</td>
                     <td>Admin</td>
                     <td>Welcome to the platform!</td>
