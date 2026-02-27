@@ -1,7 +1,36 @@
 import Sidebar from "../components/sidebar";
 import Navbar from "../components/navbar";
 
- function ProductRequest() {
+function ProductRequest() {
+
+  const product = [
+    {
+      id: "1",
+      category: "Electronics",
+      productname: "Laptop",
+      pv: "100",
+      mrp: "1000",
+      offerprice: "500",
+      quantity: "10",
+      totalamount: "5000",
+      commission: "100",
+      netamount: "4900",
+      totalpv: "1000",
+    },
+    {
+      id: "2",
+      category: "Electronics",
+      productname: "Laptop",
+      pv: "100",
+      mrp: "1000",
+      offerprice: "500",
+      quantity: "10",
+      totalamount: "5000",
+      commission: "100",
+      netamount: "4900",
+      totalpv: "1000",
+    }
+  ]
   return (
     <div className="flex flex-col lg:flex-row bg-gray-100 min-h-screen">
       <Sidebar />
@@ -11,7 +40,7 @@ import Navbar from "../components/navbar";
 
         <div className="text-center mt-6">
           <h1 className="text-3xl font-bold text-[#B0422E]">
-             Product Request
+            Product Request
           </h1>
         </div>
 
@@ -24,42 +53,39 @@ import Navbar from "../components/navbar";
                 <option>Turnover Balance</option>
               </select>
             </div>
-            <table className="w-full min-w-190 text-sm">
+            <table className="w-full min-w-190 text-sm text-center">
               <thead>
                 <tr className="bg-[#B0422E] text-white">
-                  <th className="py-3 px-4 text-left rounded-l-xl">
-                    Sr No
-                  </th>
-                  <th className="py-3 px-4 text-left">Category</th>
-                  <th className="py-3 px-4 text-left">Product Name</th>
-                  <th className="py-3 px-4 text-left">PV</th>
-                  <th className="py-3 px-4 text-left">MRP</th>
-                  <th className="py-3 px-4 text-left">Offer Price</th>
-                  <th className="py-3 px-4 text-left">Quantity</th>
-                  <th className="py-3 px-4 text-left">Total Amount</th>
-                  <th className="py-3 px-4 text-left">Commission</th>
-                  <th className="py-3 px-4 text-left">Net Amount</th>
-                  <th className="py-3 px-4 text-left rounded-r-xl">Total PV</th>
+                  <th className="py-3 px-4  rounded-l-xl">Sr No</th>
+                  <th className="py-3 px-4 ">Category</th>
+                  <th className="py-3 px-4 ">Product Name</th>
+                  <th className="py-3 px-4 ">PV</th>
+                  <th className="py-3 px-4 ">MRP</th>
+                  <th className="py-3 px-4 ">Offer Price</th>
+                  <th className="py-3 px-4 ">Quantity</th>
+                  <th className="py-3 px-4 ">Total Amount</th>
+                  <th className="py-3 px-4 ">Commission</th>
+                  <th className="py-3 px-4 ">Net Amount</th>
+                  <th className="py-3 px-4 rounded-r-xl">Total PV</th>
                 </tr>
               </thead>
 
               <tbody className="font-medium">
-                <tr className="border-b  border-gray-400">
-                  <td className="py-4 px-4">01</td>
-                  <td className="py-4 px-4">17-02-2026</td>
-                  <td className="py-4 px-4">4999₹</td>
-                  <td className="py-4 px-4">Online</td>
-                  <td className="py-4 px-4">Purchase Balance</td>
-                  <td className="py-4 px-4">Succeed</td>
-                </tr>
-                <tr className="border-b  border-gray-400">
-                  <td className="py-4 px-4">02</td>
-                  <td className="py-4 px-4">17-02-2026</td>
-                  <td className="py-4 px-4">6999₹</td>
-                  <td className="py-4 px-4">Online</td>
-                  <td className="py-4 px-4">Turnover Balance</td>
-                  <td className="py-4 px-4">Pending</td>
-                </tr>
+                {product.map((pro, index) => (
+                  <tr className="border-b  border-gray-400" key={pro.id}>
+                    <td className="py-4 px-4">{index + 1}</td>
+                    <td className="py-4 px-4">{pro.category}</td>
+                    <td className="py-4 px-4">{pro.productname}</td>
+                    <td className="py-4 px-4">{pro.pv}</td>
+                    <td className="py-4 px-4">{pro.mrp}</td>
+                    <td className="py-4 px-4">{pro.offerprice}</td>
+                    <td className="py-4 px-4">{pro.quantity}</td>
+                    <td className="py-4 px-4">{pro.totalamount}</td>
+                    <td className="py-4 px-4">{pro.commission}</td>
+                    <td className="py-4 px-4">{pro.netamount}</td>
+                    <td className="py-4 px-4">{pro.totalpv}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
 
