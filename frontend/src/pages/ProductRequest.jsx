@@ -136,7 +136,7 @@ function ProductRequest() {
                 {products.map((pro, index) => {
 
                   const totalamount = pro.offerprice * pro.quantity;
-                  const netamount = totalamount - pro.commission;
+                  // const netamount = totalamount - pro.commission;
                   const totalpv = pro.pv * pro.quantity;
 
                   return (
@@ -162,7 +162,7 @@ function ProductRequest() {
 
                       <td className="py-4 px-4">{totalamount}</td>
                       <td className="py-4 px-4">{pro.commission}</td>
-                      <td className="py-4 px-4">{netamount}</td>
+                      <td className="py-4 px-4">{totalamount}</td>
                       <td className="py-4 px-4">{totalpv}</td>
 
                       <td className="py-4 px-4">

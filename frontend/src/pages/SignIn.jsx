@@ -3,6 +3,7 @@ import api from "../api/axios";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaLock } from "react-icons/fa";
 import { PiUserCircleCheckFill } from "react-icons/pi";
+import { MdOutlineSecurity } from "react-icons/md";
 
 
 function SignIn() {
@@ -222,7 +223,7 @@ function SignIn() {
                         {activeTab === "code" && (
                             <div className="mb-3">
                                 <div className="flex items-center border-b">
-                                    <PiUserCircleCheckFill className="text-gray-400 mr-2 text-xl" />
+                                    <MdOutlineSecurity className="text-gray-400 mr-2 text-xl" />
                                     <input
                                         type="text"
                                         name="code"

@@ -9,12 +9,12 @@ function Signup() {
     const navigate = useNavigate();
 
     useEffect(() => {
-            const user = localStorage.getItem("user");
-    
-            if (user) {
-                navigate("/dashboard");
-            }
-        }, [navigate]);
+        const user = localStorage.getItem("user");
+
+        if (user) {
+            navigate("/dashboard");
+        }
+    }, [navigate]);
 
     const [formData, setFormData] = useState({
         fullname: "",
@@ -171,7 +171,7 @@ function Signup() {
 
     };
 
-
+const [loading, setLoading] = useState(false);
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -181,6 +181,7 @@ function Signup() {
 
             try {
 
+                setLoading(true);
                 await api.post("/signup", {
                     member_id: memberId,
                     fullname: formData.fullname,
@@ -204,11 +205,11 @@ function Signup() {
             } catch (error) {
 
                 if (error.response?.status === 422) {
-                    alert("Validation error from backend");
-                    console.log(error.response.data.errors);
-                } else {
-                    alert("Server error");
+                    const errors = error.response.data.errors;
+                    Object.values(errors).forEach(err => alert(err[0]));
                 }
+            } finally {
+                setLoading(false);
             }
         }
     };
@@ -257,11 +258,11 @@ function Signup() {
                                         className="w-full bg-transparent outline-none text-sm "
                                     />
                                 </div>
+                                {errors.fullname &&
+                                    <p className="text-red-500 text-xs">
+                                        {errors.fullname}
+                                    </p>}
                             </div>
-                            {errors.fullname &&
-                                <p className="text-red-500 text-xs">
-                                    {errors.fullname}
-                                </p>}
                         </div>
                         {/* Brach Name & Brach PAN */}
                         <div className="grid grid-cols-2 gap-6 mb-4">
@@ -471,12 +472,11 @@ function Signup() {
                                         className="w-full bg-transparent outline-none text-sm "
                                     />
                                 </div>
+                                {errors.address &&
+                                    <p className="text-red-500 text-xs mb-4">
+                                        {errors.address}
+                                    </p>}
                             </div>
-
-                            {errors.address &&
-                                <p className="text-red-500 text-xs mb-4">
-                                    {errors.address}
-                                </p>}
                         </div>
                         {/* Pin Code & State */}
                         <div className="grid grid-cols-2 gap-6 mb-4">
@@ -607,17 +607,19 @@ function Signup() {
 
                     </div>
                     {/* submit */}
-                    <div className="text-center">
-
+                    <div className="flex justify-center">
                         <button
                             type="submit"
-                            className={`px-14 py-2 rounded text-white mb-4 ${formData.agreeTerms && formData.ageConfirmed
-                                ? "bg-blue-600 hover:bg-blue-700"
-                                : "bg-gray-400 cursor-not-allowed"
+                            disabled={loading || !(formData.agreeTerms && formData.ageConfirmed)}
+                            className={`px-14 py-2 rounded text-white mb-4 flex items-center justify-center gap-2 
+                                 ${loading
+                                    ? "bg-blue-400 cursor-not-allowed"
+                                    : formData.agreeTerms && formData.ageConfirmed
+                                        ? "bg-blue-600 hover:bg-blue-700"
+                                        : "bg-gray-400 cursor-not-allowed"
                                 }`}
-                            disabled={!(formData.agreeTerms && formData.ageConfirmed)}
                         >
-                            Submit
+                            {loading ? "Submitting..." : "Submit"}
                         </button>
 
                     </div>
